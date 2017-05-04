@@ -1,0 +1,30 @@
+// utils
+@import 'utils/variables';
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: $WHITE;
+	border-radius: 5px;
+	content: "{{envPath}}";
+	color: $BLACK;
+	margin: 0;
+}
+
+a {
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: flex;
+}
+
+:fullscreen a {
+    display: flex
+}
+
+// components
+@import 'components/header';
+@import 'views/main';
+@import 'components/menu';
+@import 'components/footer';
+
+// pages
