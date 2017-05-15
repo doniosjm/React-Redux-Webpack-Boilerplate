@@ -1,50 +1,45 @@
+// react
 import React from 'react';
 import PropTypes from 'prop-types';
 
 // redux
 import { connect } from 'react-redux';
 
-// actions
-// import {} from '../actions';
-
-// components
-
 /**
- * Footer component
+ * Page 2 route
  */
-class footer extends React.Component {
+class page2 extends React.Component {
     constructor(props) {
-        // this.props is read-only
-        // this.state can be modified
         super(props);
-        this.state = {};
+        document.title = this.props.title;
     }
 
     /**
-     * Render component
+     * render page
      * @returns {JSX}
      */
     render() {
         return (
-            <div className="footer">
-                [footer]
+            <div className="page2">
+                <h1>Page 2</h1>
             </div>
-        );
-    }
+        )
+    };
 }
 
 // define types for props
-footer.propTypes = {
+page2.propTypes = {
+    title: PropTypes.string
 };
 
 // define default values for props
-footer.defaultProps = {
+page2.defaultProps = {
+    title: '[Page 2]'
 };
 
 // map redux state to component props
 const mapStateToProps = (state) => {
-    return {
-    }
+    return {}
 };
 
 // map redux dispatch actions to component functions
@@ -58,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(footer);
+)(page2);

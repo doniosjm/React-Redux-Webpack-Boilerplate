@@ -2,38 +2,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// components
-
 // redux
 import { connect } from 'react-redux';
 
 /**
- * route
+ * Home page
  */
 class main extends React.Component {
     constructor(props) {
         super(props);
+        document.title = this.props.title;
     };
 
     /**
-     * Component did mount
-     * https://facebook.github.io/react/docs/react-component.html
-     */
-    componentDidMount(){
-        console.log('[routes/main] componentDidMount');
-    }
-
-    /**
-     * Component will unmount
-     * https://facebook.github.io/react/docs/react-component.html
-     */
-    componentWillUnmount(){
-        console.log('[routes/main] componentWillUnmount');
-    }
-
-    /**
-     * Render page
-     * @returns {XML}
+     * render page
+     * @returns {JSX}
      */
     render() {
         return (
@@ -61,7 +44,9 @@ const mapStateToProps = (state) => {
 
 // map redux dispatch actions to component functions
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        dispatch: dispatch
+    }
 };
 
 // connect component to redux

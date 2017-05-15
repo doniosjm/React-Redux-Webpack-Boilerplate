@@ -16,7 +16,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 /**
  * Menu component
  */
-class menu extends React.Component {
+class menuAdmin extends React.Component {
     constructor(props) {
         // this.props is read-only
         // this.state can be modified
@@ -34,10 +34,6 @@ class menu extends React.Component {
                 <ul role="nav">
                     {/* Should I use onTouchTap on links? https://www.npmjs.com/package/react-router-link */}
                     <li><Link to="/" onClick={this.props.closeMenu}>Main</Link></li>
-                    <li><Link to="/trip" onClick={this.props.closeMenu}>Trip</Link></li>
-                    <li><Link to="/gueststatus" onClick={this.props.closeMenu}>Guest Status</Link></li>
-                    <li><Link to="/sensors" onClick={this.props.closeMenu}>Sensors</Link></li>
-                    <li><Link to="/page2" onClick={this.props.closeMenu}>Page 2</Link></li>
                 </ul>
             </div>
         );
@@ -47,13 +43,13 @@ class menu extends React.Component {
 // define types for props
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 // https://www.npmjs.com/package/prop-types
-menu.propTypes = {
+menuAdmin.propTypes = {
     class: PropTypes.string,
     closeMenu: PropTypes.func
 };
 
 // define default values for props
-menu.defaultProps = {
+menuAdmin.defaultProps = {
     class: 'menu'
 };
 
@@ -79,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(menu);
+)(menuAdmin);

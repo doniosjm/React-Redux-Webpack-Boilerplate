@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>React + Redux + Webpack Boilerplate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	</head>
+	<body>
+        <div id="react-container"></div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                'use strict';
+                window.app.switchApp({
+                    app: 'admin',
+                    container: 'react-container'
+                });
+            });
+        </script>
+	</body>
+</html>

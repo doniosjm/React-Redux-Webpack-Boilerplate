@@ -2,58 +2,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// components
-
 // redux
 import { connect } from 'react-redux';
 
 /**
- * Page 2 route
+ * Lists which guests are off the vessel and on the vessel
  */
-class page2 extends React.Component {
+class guestStatus extends React.Component {
     constructor(props) {
         super(props);
         document.title = this.props.title;
     }
 
     /**
-     * Component did mount
-     * https://facebook.github.io/react/docs/react-component.html
-     */
-    componentDidMount(){
-        console.log('[routes/page2] componentDidMount');
-    }
-
-    /**
-     * Component will unmount
-     * https://facebook.github.io/react/docs/react-component.html
-     */
-    componentWillUnmount(){
-        console.log('[routes/page2] componentWillUnmount');
-    }
-
-    /**
      * render page
-     * @returns {XML}
+     * @returns {JSX}
      */
     render() {
         return (
-            <div className="page2">
-                <h1>Page 2</h1>
+            <div className="guestStatus">
+                <h1>Guest Status</h1>
             </div>
         )
     };
 }
 
 // define types for props
-page2.propTypes = {
+guestStatus.propTypes = {
     title: PropTypes.string
 };
 
 // define default values for props
-page2.defaultProps = {
-    title: '[Page 2]'
+guestStatus.defaultProps = {
+    title: 'Guest Status - Octopus Dive Log'
 };
+
 
 // map redux state to component props
 const mapStateToProps = (state) => {
@@ -62,11 +45,13 @@ const mapStateToProps = (state) => {
 
 // map redux dispatch actions to component functions
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        dispatch: dispatch
+    }
 };
 
 // connect component to redux
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(page2);
+)(guestStatus);

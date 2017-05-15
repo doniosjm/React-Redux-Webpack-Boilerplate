@@ -1,5 +1,4 @@
-const menu = (state, action) => {
-    if(!state) state = {show: false};
+const menu = (state = {show: false}, action) => {
     switch (action.type) {
         case 'MENU_OPEN':
             return {

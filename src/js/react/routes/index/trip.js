@@ -5,58 +5,51 @@ import PropTypes from 'prop-types';
 // redux
 import { connect } from 'react-redux';
 
-// actions
-import {openMenu} from '../actions/menu';
-
-// components
-import AppBar from 'material-ui/AppBar';
-
 /**
- * Header component
+ * Lists trip info
  */
-class header extends React.Component {
+class trip extends React.Component {
     constructor(props) {
-        // this.props is read-only
-        // this.state can be modified
         super(props);
+        document.title = this.props.title;
     }
 
     /**
-     * Render component
+     * render page
      * @returns {JSX}
      */
     render() {
         return (
-            <AppBar
-                title={this.props.title}
-                iconClassNameRight="muidocs-icon-navigation-expand-more"
-                onLeftIconButtonTouchTap={()=>{this.props.openMenu()}}
-            />);
-    }
+            <div className="trip">
+                <h3>Trip</h3>
+            </div>
+        )
+    };
 }
 
 // define types for props
-header.propTypes = {
+trip.propTypes = {
     title: PropTypes.string
 };
 
 // define default values for props
-header.defaultProps = {
-    title: 'App Title'
+trip.defaultProps = {
+    title: 'Trip - Octopus Dive Log'
 };
 
 // map redux state to component props
 const mapStateToProps = (state) => {
     return {
+        temp: state.temp,
+        hum: state.hum,
+        uv: state.uv
     }
 };
 
 // map redux dispatch actions to component functions
 const mapDispatchToProps = (dispatch) => {
     return {
-        openMenu: () => {
-            dispatch(openMenu())
-        }
+        dispatch: dispatch
     }
 };
 
@@ -64,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(header);
+)(trip);

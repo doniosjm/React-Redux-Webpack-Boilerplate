@@ -20,21 +20,17 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 // routes
-import Main from './routes/index/main';
-import Page2 from './routes/index/page2';
-import Trip from './routes/index/trip';
-import Sensors from './routes/index/sensors';
-import GuestStatus from './routes/index/guestStatus';
+import Main from './routes/admin/main';
 
 // components
 import Header from './components/header';
-import Menu from './components/menu';
+import Menu from './components/menuAdmin';
 import Footer from './components/footer';
 
 /**
  * Render a themed App with Redux
  */
-class index {
+class admin {
     constructor(options = {}) {
         const appElement = document.getElementById(options.container);
         if(appElement) {
@@ -58,10 +54,6 @@ class index {
                                 <Menu/>
                                 <Header/>
                                 <Route path="/" exact component={Main}/>
-                                <Route path="/page2" component={Page2}/>
-                                <Route path="/trip" component={Trip}/>
-                                <Route path="/gueststatus" component={GuestStatus}/>
-                                <Route path="/sensors" render={()=><Sensors socketio={options.socketio} />} />
                                 <Footer/>
                             </div>
                         </Router>
@@ -69,7 +61,7 @@ class index {
                 </MuiThemeProvider>,
                 appElement,
                 () => {
-                    console.log('[react] index app loaded');
+                    console.log('[react] admin app loaded');
                 }
             );
         }
@@ -79,4 +71,4 @@ class index {
     }
 }
 
-export default index;
+export default admin;
